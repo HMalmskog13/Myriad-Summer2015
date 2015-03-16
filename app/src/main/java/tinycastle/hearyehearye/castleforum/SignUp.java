@@ -76,35 +76,36 @@ public class SignUp extends ActionBarActivity  {
     private TextView errorMessage = (TextView)findViewById(R.id.error);
     public void onclick()
     {
-        boolean nameGood = false;
-        boolean emailGood = false;
+        boolean nameGood;
+        boolean emailGood;
         nameGood = checkName();
         emailGood = checkEmail();
-        if (nameGood == true && emailGood ==true)
+        if (nameGood && emailGood)
         {
             //send to api
             //https://challenge2015.myriadapps.com/api/v1/subscribe
             //email as param - required
             //save email locally
             sharedPref = getSharedPreferences(PREFS, MODE_PRIVATE);
-            String toSave;
             SharedPreferences.Editor edit = sharedPref.edit();
             edit.putString(PREF_EMAIL, email);
             edit.commit();
         }
-        else if (nameGood == true && !emailGood)
+        else if (nameGood && !emailGood)
             errorMessage.setText("You need to enter a valid email!");
-        else if (!nameGood && emailGood == true)
+        else if (!nameGood && emailGood)
             errorMessage.setText("You need to enter a name!");
-        else;
+        else
         errorMessage.setText("You need to enter a name and valid email!");
 
     }
 
+
+    //check when created
     public void onLoading()
     {
         String filled = sharedPref.getString(PREF_EMAIL, "");
-        if(filled != "" && filled != null)
+        if(filled.equals("") && filled != null)
         {
             //open the next screen immediately & close this one
         }
