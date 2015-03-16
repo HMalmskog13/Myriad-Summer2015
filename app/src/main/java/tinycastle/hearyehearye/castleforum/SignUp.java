@@ -1,5 +1,6 @@
 package tinycastle.hearyehearye.castleforum;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class SignUp extends ActionBarActivity  {
     SharedPreferences sharedPref;
     EditText eText = (EditText)findViewById(R.id.email);
     String email = eText.getText().toString();
+    Intent intent = new Intent(this, Forum.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +33,7 @@ public class SignUp extends ActionBarActivity  {
         Button mainButton = (Button) findViewById(R.id.submit);
        //check for listener
         mainButton.setOnClickListener((View.OnClickListener) this);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_sign_up, menu);
-        return true;
+        onLoading();
     }
 
     @Override
@@ -74,7 +69,8 @@ public class SignUp extends ActionBarActivity  {
             return false;
     }
     private TextView errorMessage = (TextView)findViewById(R.id.error);
-    public void onclick()
+
+    public void onClick(View view)
     {
         boolean nameGood;
         boolean emailGood;
@@ -83,6 +79,7 @@ public class SignUp extends ActionBarActivity  {
         if (nameGood && emailGood)
         {
             //send to api
+
             //https://challenge2015.myriadapps.com/api/v1/subscribe
             //email as param - required
             //save email locally
@@ -90,6 +87,7 @@ public class SignUp extends ActionBarActivity  {
             SharedPreferences.Editor edit = sharedPref.edit();
             edit.putString(PREF_EMAIL, email);
             edit.commit();
+            startActivity(intent);
         }
         else if (nameGood && !emailGood)
             errorMessage.setText("You need to enter a valid email!");
@@ -108,6 +106,7 @@ public class SignUp extends ActionBarActivity  {
         if(filled.equals("") && filled != null)
         {
             //open the next screen immediately & close this one
+            startActivity(intent);
         }
     }
 }

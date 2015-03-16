@@ -6,6 +6,12 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="tinycastle.hearyehearye.castleforum.Forum">
 
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        ></include>
+
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
