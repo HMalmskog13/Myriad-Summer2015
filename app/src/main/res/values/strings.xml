@@ -8,5 +8,9 @@
     <string name="logout">Log Out</string>
     <string name="title_activity_list">List</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="desc">Kingdom Image</string>
+    <string name="title_activity_kingdom">Kingdom</string>
+    <string name="title_activity_quest">Quest</string>
+
+    <string name="qImage">Quest Image</string>
 </resources>

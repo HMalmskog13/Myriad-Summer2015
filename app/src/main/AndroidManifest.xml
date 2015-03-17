@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tinycastle.hearyehearye.castleforum" >
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,8 +20,17 @@
             android:name=".Forum"
             android:label="@string/title_activity_forum" >
         </activity>
-        <uses-permission android:name="android.permission.INTERNET" />
 
+
+
+        <activity
+            android:name=".Kingdom"
+            android:label="@string/title_activity_kingdom" >
+        </activity>
+        <activity
+            android:name=".Quest"
+            android:label="@string/title_activity_quest" >
+        </activity>
     </application>
 
 </manifest>

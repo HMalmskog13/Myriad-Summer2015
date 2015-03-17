@@ -5,15 +5,12 @@ import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import retrofit.RestAdapter;
-import retrofit.http.POST;
 
 
 public class SignUp extends ActionBarActivity  {
@@ -82,10 +79,9 @@ public class SignUp extends ActionBarActivity  {
         if (nameGood && emailGood)
         {
             //send to api
-            /*RestAdapter restAdapter = new RestAdapter.Builder()
-                    .setEndpoint(BASE_URL)
-                    .build();
-            @POST("email")*/
+            final RestApi restApi = new RestAdapter.Builder().setEndpoint(BASE_URL).build().create(RestApi.class);
+            final Email send = new Email(email);
+            restApi.sendEmail(send);
             //email as param - required
             //save email locally
             sharedPref = getSharedPreferences(PREFS, MODE_PRIVATE);
