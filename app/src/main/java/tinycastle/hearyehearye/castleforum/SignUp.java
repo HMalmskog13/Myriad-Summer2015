@@ -12,19 +12,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
+import retrofit.RestAdapter;
+import retrofit.http.POST;
 
 
 public class SignUp extends ActionBarActivity  {
 
 
-
+    public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1/subscribe";
     private static final String PREFS = "prefs";
     private static final String PREF_EMAIL = "email";
     SharedPreferences sharedPref;
     EditText eText = (EditText)findViewById(R.id.email);
     String email = eText.getText().toString();
     Intent intent = new Intent(this, Forum.class);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +65,9 @@ public class SignUp extends ActionBarActivity  {
     public boolean checkEmail()
     {
 
-        if (Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return true;
+        }
         else
             return false;
     }
@@ -79,8 +82,10 @@ public class SignUp extends ActionBarActivity  {
         if (nameGood && emailGood)
         {
             //send to api
-
-            //https://challenge2015.myriadapps.com/api/v1/subscribe
+            /*RestAdapter restAdapter = new RestAdapter.Builder()
+                    .setEndpoint(BASE_URL)
+                    .build();
+            @POST("email")*/
             //email as param - required
             //save email locally
             sharedPref = getSharedPreferences(PREFS, MODE_PRIVATE);

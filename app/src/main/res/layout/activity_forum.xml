@@ -12,14 +12,4 @@
         layout="@layout/toolbar"
         ></include>
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/kingdoms"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="49dp"
-        android:smoothScrollbar="true"
-        android:clickable="true" />
 </RelativeLayout>
