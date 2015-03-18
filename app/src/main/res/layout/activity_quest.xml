@@ -18,7 +18,8 @@
         android:layout_below="@+id/toolbar"
         android:layout_alignParentStart="true"
         android:layout_marginTop="23dp"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:hint="quest name" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,7 +27,8 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/qDesc"
         android:layout_below="@+id/qName"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="description of the quest" />
 
     <EditText
         android:layout_width="match_parent"
@@ -35,7 +37,8 @@
         android:layout_marginTop="69dp"
         android:maxLines="1"
         android:layout_below="@+id/qDesc"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="quest giver name" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,7 +46,8 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/giverDesc"
         android:layout_below="@+id/giver"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="description of the quest giver" />
 
     <ImageView
         android:layout_width="fill_parent"

@@ -1,6 +1,5 @@
 package tinycastle.hearyehearye.castleforum;
 
-import java.util.List;
 
 /**
  * Created by Heather on 3/17/2015.
@@ -8,7 +7,11 @@ import java.util.List;
  * https://challenge2015.myriadapps.com/api/v1/kingdoms/{id}
  */
 public class Task {
-    List<Quest> quests;
-    String changed;
-    int kingdomId;
+    public String climate;
+    public String population;
+    public String name;
+    public int id;
+    public String description;
+    public String giver;
+    public String image;
 }

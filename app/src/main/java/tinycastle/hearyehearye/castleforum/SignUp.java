@@ -12,14 +12,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import retrofit.RestAdapter;
 
-
+/*To-do:
+*check post
+* */
 public class SignUp extends ActionBarActivity  {
 
 
     public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1/subscribe";
     private static final String PREFS = "prefs";
-    private static final String PREF_EMAIL = "email";
-    SharedPreferences sharedPref;
+    protected static final String PREF_EMAIL = "email";
+    public static SharedPreferences sharedPref;
     EditText eText = (EditText)findViewById(R.id.email);
     String email = eText.getText().toString();
     Intent intent = new Intent(this, Forum.class);
@@ -88,6 +90,7 @@ public class SignUp extends ActionBarActivity  {
             SharedPreferences.Editor edit = sharedPref.edit();
             edit.putString(PREF_EMAIL, email);
             edit.commit();
+            intent.putExtra("email", email);
             startActivity(intent);
         }
         else if (nameGood && !emailGood)

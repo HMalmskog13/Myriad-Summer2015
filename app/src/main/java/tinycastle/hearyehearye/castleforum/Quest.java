@@ -6,7 +6,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
+/*To-do:
+* take data from kingdom
+* toolbar - show quest name, back arrow
+* images - picasso
+*view pager to swipe screens
+*
+* */
 public class Quest extends ActionBarActivity {
 
     @Override
@@ -15,6 +21,7 @@ public class Quest extends ActionBarActivity {
         setContentView(R.layout.activity_quest);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //Picasso.with(context).load("image").into(imageView);
     }
 
 
