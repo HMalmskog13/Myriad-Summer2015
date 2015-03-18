@@ -1,5 +1,6 @@
 package tinycastle.hearyehearye.castleforum;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 public class Forum extends ActionBarActivity {
 
     private Toolbar toolbar;
+    Intent intent = new Intent(this, Kingdom.class);
+    public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1/kingdoms";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +20,17 @@ public class Forum extends ActionBarActivity {
         setContentView(R.layout.activity_forum);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        /*final RestApi restApi = new RestAdapter.Builder().setEndpoint(BASE_URL).build().create(RestApi.class);
+        new AsyncTask<Void, Void, Place>(){
+
+            @Override
+            protected Place doInBackground(Void... params) {
+                return restApi.getKingdom();
+            }
+        }.execute();*/
+        //get back as list?
+
     }
 
 
@@ -37,7 +51,15 @@ public class Forum extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
+        pickKingdom(id);
         return super.onOptionsItemSelected(item);
+
     }
+
+    public void pickKingdom(int k)
+    {
+        //pass int to kingdom to open
+        startActivity(intent);
+    }
+
 }
