@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/Submit"
         android:id="@+id/submit"
-        android:background="@drawable/roundedGradient"
+        android:background="@drawable/roundedgradient"
         android:clickable="true"
         android:textColor="#ffffffff"
         android:textSize="35dp"

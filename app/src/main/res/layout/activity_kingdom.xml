@@ -19,7 +19,8 @@
         android:layout_below="@+id/toolbar"
         android:layout_alignParentStart="true"
         android:layout_marginTop="34dp"
-        android:contentDescription="@string/desc" />
+        android:contentDescription="@string/desc"
+        />
 
     <EditText
         android:layout_width="match_parent"

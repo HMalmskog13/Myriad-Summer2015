@@ -14,12 +14,11 @@ import java.util.List;
 
 import retrofit.RestAdapter;
 
+
 /*To-do:
 * check get
 * toolbar - show kingdom name, back arrow
 * view pager for screen/quest screens
-* images - picasso
-*load data to fields (climate, etc)
 * pass id to quest?
 * */
 public class Kingdom extends ActionBarActivity {
@@ -30,6 +29,7 @@ public class Kingdom extends ActionBarActivity {
     String kId ;
     String kName;
     String kImage;
+    List<Task> quests;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class Kingdom extends ActionBarActivity {
         kImage = extras.getString("image");
         EditText editName = (EditText) findViewById(R.id.kName);
         editName.setText(kName);
-        //Picasso.with(context).load(kImage).into(imageView);
+        Picasso.with(this).load(kImage).into((android.widget.ImageView) findViewById(R.id.kingdomImage));
     }
 
 

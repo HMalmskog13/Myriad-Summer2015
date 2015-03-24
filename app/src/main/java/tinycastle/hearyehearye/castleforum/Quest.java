@@ -6,22 +6,24 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.squareup.picasso.Picasso;
+
 /*To-do:
 * take data from kingdom
 * toolbar - show quest name, back arrow
-* images - picasso
 *view pager to swipe screens
 *
 * */
 public class Quest extends ActionBarActivity {
 
+    public int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quest);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //Picasso.with(context).load("image").into(imageView);
+        //Picasso.with(this).load(quests<count>.image).into((android.widget.ImageView) findViewById(R.id.questImage));
     }
 
 
