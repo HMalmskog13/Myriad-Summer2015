@@ -12,7 +12,7 @@ public class Place {
     public String name;
     public String image;
 
-    public void Place(int num, String n, String i)
+    public Place(int num, String n, String i)
     {
         id = num;
         name = n;

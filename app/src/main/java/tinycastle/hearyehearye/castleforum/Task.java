@@ -9,16 +9,18 @@ package tinycastle.hearyehearye.castleforum;
 public class Task {
     public String climate;
     public String population;
+    public String language;
     public String name;
     public int id;
     public String description;
     public String giver;
     public String image;
 
-    public void Task(String c, String p, String n, int num, String d, String g, String i)
+    public Task(String c, String p, String l, String n, int num, String d, String g, String i)
     {
         climate = c;
         population = p;
+        language = l;
         name = n;
         id = num;
         description = d;

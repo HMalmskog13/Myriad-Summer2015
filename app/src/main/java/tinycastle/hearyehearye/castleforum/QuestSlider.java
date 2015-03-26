@@ -8,8 +8,12 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 
+/**
+ * Created by Heather on 3/26/2015.
+ * makes view slider for quests
+ */
+public class QuestSlider extends FragmentActivity {
 
-public class ScreenSlider extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
@@ -29,7 +33,7 @@ public class ScreenSlider extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kingdom);
+        setContentView(R.layout.activity_quest);
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);

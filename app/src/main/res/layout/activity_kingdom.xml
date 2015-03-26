@@ -33,35 +33,32 @@
         android:singleLine="false"
         android:text="kingdom name" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/kClimate"
+        android:text="climate description goes here"
         android:layout_below="@+id/kName"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"
-        android:text="climate description goes here" />
+        android:layout_alignParentStart="true" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/kPop"
-        android:layout_below="@+id/kName"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"
-        android:text="population description goes here" />
+        android:text="population description goes here"
+        android:layout_below="@+id/kClimate"
+        android:layout_alignParentStart="true" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/kLang"
-        android:layout_below="@+id/kName"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"
-        android:text="language description goes here" />
+        android:text="language description goes here"
+        android:layout_below="@+id/kPop"
+        android:layout_alignParentStart="true" />
 
     <android.support.v4.view.ViewPager
         xmlns:android="http://schemas.android.com/apk/res/android"

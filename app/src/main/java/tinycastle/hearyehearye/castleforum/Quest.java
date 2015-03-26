@@ -7,14 +7,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 
 import com.squareup.picasso.Picasso;
 
 /*To-do:
 *show quest info
-*view pager to swipe screens
 * */
 public class Quest extends ActionBarActivity {
 
@@ -33,7 +31,16 @@ public class Quest extends ActionBarActivity {
         //add back arrow
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
+        //slider for quest
+        QuestSlider slider = new QuestSlider();
+        slider.onCreate(savedInstanceState);
+        //set quest info
+        EditText questName = (EditText)findViewById(R.id.qName);
+        questName.setText(Kingdom.quests.get(count).name);
+        EditText questDesc = (EditText)findViewById(R.id.qDesc);
+        questDesc.setText(Kingdom.quests.get(count).description);
+        EditText questGiver = (EditText)findViewById(R.id.giver);
+        questGiver.setText(Kingdom.quests.get(count).giver);
     }
 
 
@@ -55,7 +62,7 @@ public class Quest extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-        //for backarrow
+        //for back arrow
         if(id == android.R.id.home)
         {
             Intent intent = new Intent (this, Kingdom.class);

@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -16,15 +17,12 @@ import java.util.List;
 import retrofit.RestAdapter;
 
 
-/*To-do:
-* view pager for screen/quest screens
-* */
 public class Kingdom extends ActionBarActivity {
 
 
     public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1";
     Intent intent = new Intent(this, Quest.class);
-    String kId ;
+    int kId ;
     static String kName;
     String kImage;
     static List<Task> quests;
@@ -39,7 +37,7 @@ public class Kingdom extends ActionBarActivity {
         toolbar.setTitle(kName);
         //receive data from forum class
         Bundle extras = getIntent().getExtras();
-        kId = extras.getString("id");
+        kId = Integer.parseInt(extras.getString("id"));
         kName = extras.getString("name");
         kImage = extras.getString("image");
         //set kingdom name and image
@@ -49,7 +47,19 @@ public class Kingdom extends ActionBarActivity {
         //back arrow
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
+        //screen slider
+        ScreenSlider slide = new ScreenSlider();
+        slide.onCreate(savedInstanceState);
+        //retrieve quests from web
+        RestApi restApi = new RestAdapter.Builder().setEndpoint(BASE_URL).build().create(RestApi.class);
+        quests  = restApi.taskList(kId);
+        //set kingdom info
+        EditText climate = (EditText) findViewById(R.id.kClimate);
+        climate.setText(quests.get(kId).climate);
+        EditText pop = (EditText) findViewById(R.id.kPop);
+        pop.setText(quests.get(kId).population);
+        EditText lang = (EditText)findViewById(R.id.kLang);
+        lang.setText(quests.get(kId).language);
     }
 
 
@@ -71,11 +81,8 @@ public class Kingdom extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-    //retrieve quests from web
-        if(id!= android.R.id.home)
-        {RestApi restApi = new RestAdapter.Builder().setEndpoint(BASE_URL).build().create(RestApi.class);
-        quests  = restApi.taskList(id);
-        startActivity(intent);}
+
+        startActivity(intent);
         //for back arrow
         if(id == android.R.id.home)
         {
