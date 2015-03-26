@@ -21,7 +21,8 @@ public class RViewerAdapt extends RecyclerView.Adapter <RViewerAdapt.MyViewHolde
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View views = inflater.inflate(R.layout.viewer, parent.false);
+       //check this
+        View views = inflater.inflate(R.layout.viewer, viewGroup);
         return null;
     }
 

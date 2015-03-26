@@ -1,5 +1,7 @@
 package tinycastle.hearyehearye.castleforum;
 
+import android.app.ActionBar;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,10 +11,8 @@ import android.view.MenuItem;
 import com.squareup.picasso.Picasso;
 
 /*To-do:
-* take data from kingdom
-* toolbar - show quest name, back arrow
+* take data from kingdom & show quest info
 *view pager to swipe screens
-*
 * */
 public class Quest extends ActionBarActivity {
 
@@ -21,9 +21,16 @@ public class Quest extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quest);
+        //create the toolbar, set the title to the quest number
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //Picasso.with(this).load(quests<count>.image).into((android.widget.ImageView) findViewById(R.id.questImage));
+        //toolbar.setTitle("Quest i")
+        toolbar.setTitle(Kingdom.kName+" quest " + (count+1));
+        //load the quest image 
+        Picasso.with(this).load(Kingdom.quests.get(count).image).into((android.widget.ImageView) findViewById(R.id.questImage));
+        //add back arrow
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -44,6 +51,12 @@ public class Quest extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        //for backarrow
+        if(id == android.R.id.home)
+        {
+            Intent intent = new Intent (this, Kingdom.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

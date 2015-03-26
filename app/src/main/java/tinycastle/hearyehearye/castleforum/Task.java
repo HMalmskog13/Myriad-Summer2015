@@ -14,4 +14,15 @@ public class Task {
     public String description;
     public String giver;
     public String image;
+
+    public void Task(String c, String p, String n, int num, String d, String g, String i)
+    {
+        climate = c;
+        population = p;
+        name = n;
+        id = num;
+        description = d;
+        giver = g;
+        image = i;
+    }
 }

@@ -6,8 +6,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/icons"
-        android:src="@drawable/"/>
+        android:id="@+id/icons"/>
 
     <TextView
         android:layout_width="wrap_content"

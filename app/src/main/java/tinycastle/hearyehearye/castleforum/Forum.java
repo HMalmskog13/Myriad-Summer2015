@@ -19,9 +19,8 @@ import java.util.List;
 import retrofit.RestAdapter;
 
 /*To-do:
-* make toolbar behave - show email & logout overflow
-* (how to replace in v 22?)
-* check get
+* toolbar?
+* recyclerview/picasso
 * */
 public class Forum extends ActionBarActivity {
 
@@ -37,8 +36,10 @@ public class Forum extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
+        //make toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //get list of kingdoms
         RestApi restApi = new RestAdapter.Builder().setEndpoint(BASE_URL).build().create(RestApi.class);
         places = restApi.placeList();
 
@@ -47,6 +48,7 @@ public class Forum extends ActionBarActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        //set title to user email
         getMenuInflater().inflate(R.menu.menu_forum, menu);
         String user = SignUp.sharedPref.getString(SignUp.PREF_EMAIL, "");
         toolbar.setTitle(user);
@@ -64,6 +66,7 @@ public class Forum extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        //pass the selected kingdom's name, id # and image path
         intent.putExtra("id", id);
         String kn = places.get(id).name;
         intent.putExtra("name", kn);
@@ -74,12 +77,13 @@ public class Forum extends ActionBarActivity {
 
     }
 
+    //move to  the screen with the chosen kingdom's info
     public void pickKingdom()
     {
-        //pass int to kingdom to open
         startActivity(intent);
     }
 
+    //this method erases the user's email from local memory
     public void onLogout()
     {
         SharedPreferences.Editor edit = SignUp.sharedPref.edit();
@@ -87,12 +91,13 @@ public class Forum extends ActionBarActivity {
         edit.commit();
     }
 
-
+//for showing the recyclerview
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState )
     {
        View layout = inflater.inflate(R.layout.activity_forum, container, false);
        recView = (RecyclerView) findViewById(R.id.rView);
        //Picasso.with(this).load(places<i>.image).into(rPic);
+        //maybe goes ni rviewadapter?
        return layout;
     }
 

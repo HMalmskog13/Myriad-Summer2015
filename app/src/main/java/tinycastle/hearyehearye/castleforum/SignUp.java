@@ -12,9 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import retrofit.RestAdapter;
 
-/*To-do:
-*check post
-* */
+
 public class SignUp extends ActionBarActivity  {
 
 
@@ -52,6 +50,7 @@ public class SignUp extends ActionBarActivity  {
         return super.onOptionsItemSelected(item);
     }
 
+    //checks that a name has been entered
     public boolean checkName() {
         EditText nText = (EditText)findViewById(R.id.name);
         String name = nText.getText().toString();
@@ -61,6 +60,7 @@ public class SignUp extends ActionBarActivity  {
             return false;
     }
 
+    //checks that a plausible email has been entered
     public boolean checkEmail()
     {
 
@@ -72,6 +72,7 @@ public class SignUp extends ActionBarActivity  {
     }
     private TextView errorMessage = (TextView)findViewById(R.id.error);
 
+    //if both name and email are good, save email locally and start the forum
     public void onClick(View view)
     {
         boolean nameGood;
@@ -93,6 +94,7 @@ public class SignUp extends ActionBarActivity  {
             intent.putExtra("email", email);
             startActivity(intent);
         }
+        //if one or both are bad, print an error message
         else if (nameGood && !emailGood)
             errorMessage.setText("You need to enter a valid email!");
         else if (!nameGood && emailGood)

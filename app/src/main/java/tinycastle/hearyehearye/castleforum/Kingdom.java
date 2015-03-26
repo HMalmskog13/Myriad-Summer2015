@@ -1,5 +1,6 @@
 package tinycastle.hearyehearye.castleforum;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -16,10 +17,8 @@ import retrofit.RestAdapter;
 
 
 /*To-do:
-* check get
-* toolbar - show kingdom name, back arrow
+* toolbar - show back arrow
 * view pager for screen/quest screens
-* pass id to quest?
 * */
 public class Kingdom extends ActionBarActivity {
 
@@ -27,23 +26,31 @@ public class Kingdom extends ActionBarActivity {
     public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1/kingdoms/{id}";
     Intent intent = new Intent(this, Quest.class);
     String kId ;
-    String kName;
+    static String kName;
     String kImage;
-    List<Task> quests;
+    static List<Task> quests;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kingdom);
+        //create toolbar and set title to kingdom name
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle(kName);
+        //receive data from forum class
         Bundle extras = getIntent().getExtras();
         kId = extras.getString("id");
         kName = extras.getString("name");
         kImage = extras.getString("image");
+        //set kingdom name and image
         EditText editName = (EditText) findViewById(R.id.kName);
         editName.setText(kName);
         Picasso.with(this).load(kImage).into((android.widget.ImageView) findViewById(R.id.kingdomImage));
+        //back arrow
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
     }
 
 
@@ -65,10 +72,17 @@ public class Kingdom extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
-        RestApi restApi = new RestAdapter.Builder().setEndpoint(BASE_URL).build().create(RestApi.class);
-        List<Task> quests  = restApi.taskList(id);
-        startActivity(intent);
+    //retrieve quests from web
+        if(id!= android.R.id.home)
+        {RestApi restApi = new RestAdapter.Builder().setEndpoint(BASE_URL).build().create(RestApi.class);
+        quests  = restApi.taskList(id);
+        startActivity(intent);}
+        //for backarrow
+        if(id == android.R.id.home)
+        {
+            Intent intent2 = new Intent (this, Forum.class);
+            startActivity(intent2);
+        }
         return super.onOptionsItemSelected(item);
     }
 
