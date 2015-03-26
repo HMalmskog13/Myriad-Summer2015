@@ -17,13 +17,12 @@ import retrofit.RestAdapter;
 
 
 /*To-do:
-* toolbar - show back arrow
 * view pager for screen/quest screens
 * */
 public class Kingdom extends ActionBarActivity {
 
 
-    public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1/kingdoms/{id}";
+    public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1";
     Intent intent = new Intent(this, Quest.class);
     String kId ;
     static String kName;
@@ -77,7 +76,7 @@ public class Kingdom extends ActionBarActivity {
         {RestApi restApi = new RestAdapter.Builder().setEndpoint(BASE_URL).build().create(RestApi.class);
         quests  = restApi.taskList(id);
         startActivity(intent);}
-        //for backarrow
+        //for back arrow
         if(id == android.R.id.home)
         {
             Intent intent2 = new Intent (this, Forum.class);

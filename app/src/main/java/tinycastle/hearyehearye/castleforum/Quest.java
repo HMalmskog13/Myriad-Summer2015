@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 /*To-do:
-* take data from kingdom & show quest info
+*show quest info
 *view pager to swipe screens
 * */
 public class Quest extends ActionBarActivity {

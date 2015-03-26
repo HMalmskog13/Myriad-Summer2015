@@ -16,7 +16,7 @@ import retrofit.RestAdapter;
 public class SignUp extends ActionBarActivity  {
 
 
-    public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1/subscribe";
+    public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1";
     private static final String PREFS = "prefs";
     protected static final String PREF_EMAIL = "email";
     public static SharedPreferences sharedPref;

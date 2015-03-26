@@ -19,14 +19,13 @@ import java.util.List;
 import retrofit.RestAdapter;
 
 /*To-do:
-* toolbar?
 * recyclerview/picasso
 * */
 public class Forum extends ActionBarActivity {
 
     private Toolbar toolbar;
     Intent intent = new Intent(this, Kingdom.class);
-    public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1/kingdoms";
+    public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1";
     List<Place> places;
     Bundle extra = getIntent().getExtras();
     String em  = extra.getString("email");

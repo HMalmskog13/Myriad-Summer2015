@@ -15,15 +15,15 @@ import retrofit.http.Path;
  * Created by Heather on 3/17/2015.
  */
 public interface RestApi {
-    @POST("https://challenge2015.myriadapps.com/api/v1/subscribe")
+    @POST("/subscribe")
     void sendEmail(@Body Email email);
 
 
-    @GET("https://challenge2015.myriadapps.com/api/v1/kingdoms")
+    @GET("/kingdoms")
     List<Place> placeList ();
-   // void getKingdom();
+   //get list of kingdoms
 
-
-    @GET("https://challenge2015.myriadapps.com/api/v1/kingdoms/{id}")
+    //get list of quests for kingdom
+    @GET("/kingdoms/{id}")
     List<Task> taskList (@Path("id") int id);
 }
