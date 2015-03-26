@@ -33,6 +33,7 @@ public class Quest extends ActionBarActivity {
         //add back arrow
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
     }
 
 

@@ -95,8 +95,7 @@ public class Forum extends ActionBarActivity {
     {
        View layout = inflater.inflate(R.layout.activity_forum, container, false);
        recView = (RecyclerView) findViewById(R.id.rView);
-       //Picasso.with(this).load(places<i>.image).into(rPic);
-        //maybe goes ni rviewadapter?
+       //picasso in rviewer?
        return layout;
     }
 
