@@ -2,6 +2,7 @@ package tinycastle.hearyehearye.castleforum;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,9 +12,7 @@ import android.widget.EditText;
 
 import com.squareup.picasso.Picasso;
 
-/*To-do:
-*show quest info
-* */
+
 public class Quest extends ActionBarActivity {
 
     public int count = 0;
@@ -27,7 +26,7 @@ public class Quest extends ActionBarActivity {
         //toolbar.setTitle("Quest i")
         toolbar.setTitle(Kingdom.kName+" quest " + (count+1));
         //load the quest image 
-        Picasso.with(this).load(Kingdom.quests.get(count).image).into((android.widget.ImageView) findViewById(R.id.questImage));
+        Picasso.with(this).load(Uri.parse(Kingdom.quests.get(count).image)).into((android.widget.ImageView) findViewById(R.id.questImage));
         //add back arrow
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);

@@ -2,12 +2,14 @@ package tinycastle.hearyehearye.castleforum;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 
 import com.squareup.picasso.Picasso;
@@ -60,6 +62,8 @@ public class Kingdom extends ActionBarActivity {
         pop.setText(quests.get(kId).population);
         EditText lang = (EditText)findViewById(R.id.kLang);
         lang.setText(quests.get(kId).language);
+        ImageView imageView = (ImageView)findViewById(R.id.kingdomImage);
+        imageView.setImageURI(Uri.parse(kImage));
     }
 
 

@@ -2,15 +2,18 @@ package tinycastle.hearyehearye.castleforum;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -18,9 +21,7 @@ import java.util.List;
 
 import retrofit.RestAdapter;
 
-/*To-do:
-* recyclerview/picasso
-* */
+
 public class Forum extends ActionBarActivity {
 
     private Toolbar toolbar;
@@ -41,7 +42,25 @@ public class Forum extends ActionBarActivity {
         //get list of kingdoms
         RestApi restApi = new RestAdapter.Builder().setEndpoint(BASE_URL).build().create(RestApi.class);
         places = restApi.placeList();
+        recView = (RecyclerView)findViewById(R.id.rView);
+        recView.setHasFixedSize(true);
 
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recView.setLayoutManager(layoutManager);
+        for (int i =0; i<places.size(); i++)
+        {
+            TextView pText = (TextView) findViewById(R.id.placeText);
+            pText.setText(places.get(i).name);
+            Picasso.with(this).load(Uri.parse(places.get(i).image)).into((ImageView) findViewById(R.id.icons));
+        }
+        //logout listen
+        Button b = (Button) findViewById(R.id.logout);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLogout();
+            }
+        });
     }
 
 
@@ -49,8 +68,7 @@ public class Forum extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         //set title to user email
         getMenuInflater().inflate(R.menu.menu_forum, menu);
-        String user = SignUp.sharedPref.getString(SignUp.PREF_EMAIL, "");
-        toolbar.setTitle(user);
+        toolbar.setTitle(em);
         return true;
     }
 
@@ -85,18 +103,11 @@ public class Forum extends ActionBarActivity {
     //this method erases the user's email from local memory
     public void onLogout()
     {
+
         SharedPreferences.Editor edit = SignUp.sharedPref.edit();
         edit.remove(SignUp.PREF_EMAIL);
         edit.commit();
     }
 
-//for showing the recyclerview
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState )
-    {
-       View layout = inflater.inflate(R.layout.activity_forum, container, false);
-       recView = (RecyclerView) findViewById(R.id.rView);
-       //picasso in rviewer?
-       return layout;
-    }
 
 }

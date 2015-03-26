@@ -4,6 +4,6 @@
     tools:context="tinycastle.hearyehearye.castleforum.Forum">
     <item android:id="@+id/user" android:title="placeholder"/>
     <item android:id="@+id/logout" android:title="Log Out"
-        app:showAsAction="never" android:onClick="onLogout();"/>
+        app:showAsAction="never"/>
 
 </menu>
