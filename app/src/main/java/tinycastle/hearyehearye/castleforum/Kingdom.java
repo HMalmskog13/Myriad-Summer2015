@@ -18,7 +18,9 @@ import java.util.List;
 
 import retrofit.RestAdapter;
 
-
+/*
+This activity shows the specifics of the selected kingdom
+ */
 public class Kingdom extends ActionBarActivity {
 
 

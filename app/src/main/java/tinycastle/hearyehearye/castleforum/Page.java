@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 /**
  * Created by Heather on 3/26/2015.
+ * Class to implement pageviewer
  */
 public class Page extends Fragment {
 

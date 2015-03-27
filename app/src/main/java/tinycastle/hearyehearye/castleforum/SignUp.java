@@ -15,7 +15,9 @@ import retrofit.RestAdapter;
 
 public class SignUp extends ActionBarActivity  {
 
-
+/*
+The sign in screen used if no email is stored
+ */
     public static final String BASE_URL = "https://challenge2015.myriadapps.com/api/v1";
     private static final String PREFS = "prefs";
     protected static final String PREF_EMAIL = "email";

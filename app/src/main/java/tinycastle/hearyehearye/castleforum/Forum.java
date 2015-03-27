@@ -14,14 +14,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
-
 import retrofit.RestAdapter;
 
-
+/*
+This activity shows the kingdoms to be selected
+ */
 public class Forum extends ActionBarActivity {
 
     private Toolbar toolbar;

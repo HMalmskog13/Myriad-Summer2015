@@ -12,7 +12,9 @@ import android.widget.EditText;
 
 import com.squareup.picasso.Picasso;
 
-
+/*
+This activity shows all of the quests for the selected kingdom
+ */
 public class Quest extends ActionBarActivity {
 
     public int count = 0;

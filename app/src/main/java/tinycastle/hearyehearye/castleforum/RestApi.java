@@ -13,6 +13,7 @@ import retrofit.http.Path;
 /**
  *
  * Created by Heather on 3/17/2015.
+ * restApi for getting information from web
  */
 public interface RestApi {
     @POST("/subscribe")
